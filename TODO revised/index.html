@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+
+    <script src="index.js"></script>
+</head>
+<script src="client.js"></script>
+<body>
+    <h1>TODO LIST</h1>
+    ID
+    <input type="text" id="id">
+    <br><br>
+    Todo Title
+    <input type="text" name="" id="title">
+    <br><br>
+    Todo description
+    <input type="text" name="" id="desc">
+    <button id="just" onclick="postdata()">Send Todo</button>
+
+    <div id = "mainarea">
+        <br><br>
+    </div>
+    <hr>
+        ID
+        <br><br>
+        <input type="text" id="delete">
+        <button onclick="deletedata()">DELETE</button>
+        <br>
+    <hr>
+        <div id="putarea">
+            ID
+            <input type="text" id="putid">
+            <br><br>
+            Todo Title
+            <input type="text" name="" id="puttitle">
+            <br><br>
+            Todo description
+            <input type="text" name="" id="putdesc">
+            <button id="just" onclick="putdata()">Send Todo</button>
+        </div>
+    <hr>
+
+</body>
+</html>
