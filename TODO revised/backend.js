@@ -156,6 +156,48 @@ app.delete('/todos/:id', (req,res) => {
         }
     })
 })
+function authenticatin(req,res,next) {
+    var userobj = {
+        username : req.body.username,
+        password : req.body.password
+    }
+    var secretkey = "SecretKey";
+    token = jwt.sign(userobj,secretkey);
+    req.authenticatinData = token;
+    next();
+}
+function adminauthentication(req,res,next) {
+    var auth = token;
+    console.log(auth);
+    var secretkey = "SecretKey"
+    jwt.verify(auth,secretkey,(err,decoded) => {
+        if(err)
+        {
+            console.log("Error in decoding");
+            next();
+        }
+        else
+        {
+            console.log("decoded succefully");
+            res.send(decoded);
+        }
+    })
+}
+///////////////////////////////////////////////////////////////  USER SIGNUP ROUTE
+app.post('/admin/signup', authenticatin,(req,res) => {
+    var newadmin = {
+        title: req.body.username,
+        description: req.body.password
+    }
+    admin.push(newadmin);
+    var token = req.authenticatinData;
+    console.log(token);
+    res.send(token);
+}) 
+///////////////////////////////////////////////////////////////  USER LOGIN ROUTE
+app.post("/admin/login",adminauthentication,(req,res) => {
+    res.sendStatus(403);
+})
 app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname,"index.html"));
 })
