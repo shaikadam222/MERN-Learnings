@@ -33,6 +33,9 @@ app.post('/todos',(req,res) => {
     newtodo.save().then(callback);
 
 })
+app.get('/todos',(req,res) => {
+    res.send(todos);
+})
 app.listen(port,()=> {
     console.log("listening");
 })
