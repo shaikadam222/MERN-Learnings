@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const { ObjectId } = require("mongodb");
+const { createBrotliCompress } = require("zlib");
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -53,7 +54,7 @@ app.post('/user/signup',authenticate,async (req,res) => {
     else
     {
         var check = await user.findOne({username : req.body.username})
-        // console.log(check)
+        console.log(check)
         if(check)
         {
             console.log("found user" + check.username)
@@ -124,18 +125,33 @@ app.get('/user/todos',async(req,res) => {
     }
 })
 app.put('/user/todos/:id',async (req,res) => {
-    let check = await todo.find({id : req.params.id})
-    if(check == undefined)
+    // let check = await todo.updateOne({id : req.params.id})
+    var check = await todo.findOneAndUpdate(
+        { id: req.params.id }, // Replace with the actual _id
+        { $set: { title: req.body.title, description: req.body.description } },
+        { new: true })
+
+    if(check)
     {
-        res.status(404).send("Todo can't find");
+        const checkobj = check
+        res.status(200).send(("TODO updated "+ checkobj));
     }
     else
     {
-        check.title = req.body.title;
-        check.description = req.body.description;
+        res.status(404).send("can't find todo");
+    }
 
-        console.log(check);
-        res.send(check);
+})
+app.delete("/user/todos/:id",async (req,res) => {
+    let check = await todo.deleteOne({id: req.params.id})
+    console.log(check);
+    if(check.deletedCount)
+    {
+        res.status(200).send("successfull delete");
+    }
+    else
+    {
+        res.send("Todo doesn't exists");
     }
 })
 app.listen(port,()=> {
