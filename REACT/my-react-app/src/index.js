@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
+import APP2 from "./components/APP2";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<APP2 />, document.getElementById("root"));
 
 //1. Apply CSS styles to App.jsx component
 //to match the appearance on the completed app:

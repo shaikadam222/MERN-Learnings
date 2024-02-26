@@ -22,6 +22,14 @@ const contacts = [
         "https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png",
       phone: "+918 372 574",
       email: "gmail@chucknorris.com"
+    },
+    {
+      id:4,
+      name: "aljhsdljashld",
+      imgURL :
+       "https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png",
+      phone : "9493799025",
+      email : "shaikadam642@gmail.com"
     }
   ];
 
