@@ -22,7 +22,7 @@
 // }
 let auth;
 function goToNewPage() {
-    var newPageUrl = 'course.html';
+    var newPageUrl = 'maincourse.html';
     window.location.href = newPageUrl;
   }
   
