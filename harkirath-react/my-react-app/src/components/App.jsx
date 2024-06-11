@@ -1,5 +1,4 @@
-import { describe } from "node:test";
-import { title } from "process";
+
 import React from "react";
 import { useEffect } from "react";
 
@@ -16,17 +15,18 @@ function App() {
     }
 );
 
-
-    setInterval(() => {
-        setTododToday({
-            title : "Got ot gym" + Math.random(),
-            description : "Go fast",
-            id : 1
-        })
-    },1000)
-
-
-
+console.log("asasd");
+    React.useEffect(() => {
+        console.log("inside useeffect");
+        setInterval(() => {
+            setTododToday({
+                title : "Got ot gym" + Math.random(),
+                description : "Go fast",
+                id : 1
+            })
+        },1000)
+    },[])
+    
     return (
         <div>
             {JSON.stringify(todos)}
