@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,4 +65,72 @@
         <hr>
     </div>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="admin.js"></script>
+</head>
+<body>
+    
+    <!--                                 ADMIN SIGNUP                                    -->
+    <h3>ADMIN SIGNUP</h3>
+    username
+    <input type="text" id="adminusername">
+    <br><br>
+    password
+    <input type="text" id="adminpassword">
+    <br><br>
+    <button id="adminsignup" onclick="postadmin()">Sign Up</button>
+    <hr>
+    <br>
+    <!--                                 ADMIN LOGIN                                    -->
+    <h3>ADMIN LOGIN</h3>
+    username
+    <input type="text" id="loginusername">
+    <br><br>
+    password
+    <input type="text" id="loginpassword">
+    <br><br>
+    <button id="adminlogin" onclick="adminlogin()">Login</button>
+    <hr>
+    <!--                                 COURSE CREATION                                    -->
+    <h2>Course Creation by ADMIN</h2>
+    coursetitle
+    <input type="text" id="coursetitle">
+    <br><br>
+    coursedescription
+    <input type="text" id="coursedescription">
+    <br><br>
+    price
+    <input type="text" id="courseprice">
+    <br><br>
+    <button id="coursecreate" onclick="coursecreate()">CREATE</button>
+    <hr>
+    <!--                                 COURSE UPDATION                                    -->
+    <h2>Course Updation</h2>
+    Enter the title of the course that needs to be updated
+    <input type="text" id="needupdate">
+    <h3>Enter the updated values of course</h3>
+    coursetitle
+    <input type="text" name="" id="updatedcoursetitle">
+    <br><br>
+    course description
+    <input type="text" name="" id="updatedcoursedescription">
+    <br><br>
+    course price
+    <input type="text" name="" id="updatedcourseprice">
+    <br><br>
+    <button onclick="updatedcourse()">UPDATE</button>
+    <hr>
+    <h3>ALL COURSES</h3>
+    <button onclick="getallcourses()">SHOW</button>
+    <div id="mainarea">
+        <hr>
+    </div>
+</body>
+>>>>>>> origin/main
 </html>
